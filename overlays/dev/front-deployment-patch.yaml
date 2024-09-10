@@ -15,7 +15,5 @@ spec:
     spec:
       containers:
       - name: front
-        image: readytodev/bank-front:{{newTag}}
-        imagePullPolicy: Always
         ports:
         - containerPort: 80
