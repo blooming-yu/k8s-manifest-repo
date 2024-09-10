@@ -3,7 +3,7 @@ kind: Kustomization
 images:
 - name: readytodev/5team-front
   newName: readytodev/5team-front
-  newTag: 76fcfe4f
+  newTag: bbb0caba
 resources:
 - ../../base
 patchesStrategicMerge:
