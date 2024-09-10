@@ -1,0 +1,78 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: back
+  namespace: bank
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: back
+  template:
+    metadata:
+      labels:
+        app: back
+    spec:
+      containers:
+      - name: back
+        image: readytodev/5team-back:2.0 
+        ports:
+        - containerPort: 8080
+        env:
+        - name: MYSQL_HOST
+          value: mid-bank.cbmgicamgfgg.ap-northeast-1.rds.amazonaws.com
+        - name: MYSQL_PORT
+          value: "3306"
+        - name: PORT
+          value: "8080"
+        - name: MYSQL_USER
+          valueFrom:
+            secretKeyRef:
+              name: back-secret
+              key: mysql-id
+        - name: MYSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: back-secret
+              key: mysql-pw
+        - name: MYSQL_DB
+          valueFrom:
+            secretKeyRef:
+              name: back-secret
+              key: MYSQL_DB
+        - name: MYSQL_SALT_DB
+          valueFrom:
+            secretKeyRef:
+              name: back-secret
+              key: MYSQL_SALT_DB
+        - name: NAVER_EMAIL
+          valueFrom:
+            secretKeyRef:
+              name: back-secret
+              key: NAVER_EMAIL
+        - name: NAVER_EMAIL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: back-secret
+              key: NAVER_EMAIL_PASSWORD
+        - name: CORS_ORIGIN 
+          valueFrom:
+            secretKeyRef:
+              name: back-secret
+              key: CORS_ORIGIN
+        - name: SESSION_SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: back-secret
+              key: SESSION_SECRET_KEY
+        - name: reCAPTCHA_SITE_KEY
+          valueFrom:
+            secretKeyRef:
+              name: back-secret
+              key: reCAPTCHA_SITE_KEY
+        - name: reCAPTCHA_SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: back-secret
+              key: reCAPTCHA_SECRET_KEY
+
