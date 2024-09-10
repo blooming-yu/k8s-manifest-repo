@@ -12,8 +12,3 @@ spec:
     metadata:
       labels:
         app: front
-    spec:
-      containers:
-      - name: front
-        ports:
-        - containerPort: 80
