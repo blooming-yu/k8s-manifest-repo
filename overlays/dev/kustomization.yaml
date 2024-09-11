@@ -7,4 +7,5 @@ patchesStrategicMerge:
 - front-service-patch.yaml
 images:
 - name: readytodev/5team-front
-  newTag: 12db00ba
+  newName: readytodev/5team-front
+  newTag: 1b6a8af0
