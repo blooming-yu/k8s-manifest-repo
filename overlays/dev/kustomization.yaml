@@ -8,4 +8,4 @@ patchesStrategicMerge:
 images:
 - name: readytodev/5team-front
   newName: readytodev/5team-front
-  newTag: 9fe8c7f8
+  newTag: 73fd1f67
